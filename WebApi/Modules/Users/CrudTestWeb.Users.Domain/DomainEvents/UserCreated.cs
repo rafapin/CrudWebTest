@@ -1,13 +1,19 @@
 ﻿using CrudTestWeb.Shared.Domain.Definitions;
+using CrudTestWeb.Users.Domain.ValueObjects;
 
 namespace CrudTestWeb.Users.Domain.DomainEvents
 {
     internal class UserCreated: DomainEvent
     {
-        public UserCreated(UserAggregate user)
+        public UserCreated(string email, string userName, UserStatus state)
         {
-            User = user;
+            Email = email;
+            UserName = userName;
+            State = state;
         }
-        public UserAggregate User { get; set; }
+
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public UserStatus State { get; set; }
     }
 }
