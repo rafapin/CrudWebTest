@@ -1,3 +1,51 @@
 /WebApi/.vs
 /WebApi/bin
 /WebApi/Controllers
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/WebFront/dist
+/WebFront/tmp
+/WebFront/out-tsc
+/WebFront/bazel-out
+
+# Node
+/WebFront/node_modules
+/WebFront/npm-debug.log
+/WebFront/yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+WebFront/.vscode/*
+WebFront/!.vscode/settings.json
+WebFront/!.vscode/tasks.json
+WebFront/!.vscode/launch.json
+WebFront/!.vscode/extensions.json
+WebFront/.history/*
+
+# Miscellaneous
+/WebFront/.angular/cache
+WebFront/.sass-cache/
+/WebFront/connect.lock
+/WebFront/coverage
+/WebFront/libpeerconnection.log
+WebFront/testem.log
+/WebFront/typings
+
+# System files
+.DS_Store
+Thumbs.db
+/WebApi/Api/obj
+/WebApi/Modules/Users/CrudTestWeb.Users.Application/obj
+/WebApi/Modules/Users/CrudTestWeb.Users.Domain/obj
+/WebApi/Modules/Users/CrudTestWeb.Users.Infrastructure/obj
+/WebApi/Shared/Domain/CrudTestWeb.Shared.Domain/obj
