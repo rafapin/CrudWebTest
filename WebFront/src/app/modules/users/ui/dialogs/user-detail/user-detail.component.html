@@ -1,0 +1,47 @@
+<div class="user-form">
+    <mat-card class="modal-container">
+      <mat-card-title>
+        <h1 style="padding-left:20px">User Detail</h1>
+      </mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="margin-top: 20px;">
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="userName" >
+              <mat-error style="height:80px" *ngIf="userForm.controls['userName'].invalid && userForm.controls['userName'].touched">
+                The name is required and 5-30 length.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email"  >
+              <mat-error *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+                Ingresa un email válido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password"  >
+              <mat-error *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+                The password is required and must contain at least one digit, one lowercase letter, one uppercase letter, and one special character.
+              </mat-error>
+            </mat-form-field>
+          </div>
+  
+          <button mat-raised-button color="primary" type="submit"
+          style="width:100%; margin-top:20px"
+            [disabled]="userForm.invalid">Save</button>
+        
+            <button mat-raised-button color="warn" 
+            style="width:100%; margin-top:20px" (click)="onCancel()">Close</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

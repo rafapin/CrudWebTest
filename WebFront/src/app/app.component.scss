@@ -1,0 +1,57 @@
+.container{
+    padding: 20px 10% 0 10%;
+}
+
+.spinner-bars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .spinner-bars div {
+    width: 6px;
+    height: 18px;
+    margin: 0 3px;
+    background-color: var(--principal);
+    animation: spinner-bars 1.2s infinite ease-in-out;
+  }
+  
+  .spinner-bars div:nth-child(1) {
+    animation-delay: -0.4s;
+  }
+  
+  .spinner-bars div:nth-child(2) {
+    animation-delay: -0.2s;
+  }
+
+  .spinner-text{
+    margin-top:20px;
+    color: var(--principal);
+    animation: fade-in 1.2s infinite ease-in-out;
+  }
+  
+  @keyframes spinner-bars {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1, 2.5);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+  }
+  

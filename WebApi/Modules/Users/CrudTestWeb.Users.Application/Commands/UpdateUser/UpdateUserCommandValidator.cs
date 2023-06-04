@@ -15,7 +15,7 @@ namespace CrudTestWeb.Users.Application.Commands.CreateUser
                 .EmailAddress(FluentValidation.Validators.EmailValidationMode.Net4xRegex)
                 .MaximumLength(100)
                 .MustAsync(async (root, lst, ctx) =>
-                    (await repository.GetAsync(it => it.Email == root.Email && it.AggregateId != root.Id)).Count() > 0)
+                    (await repository.GetAsync(it => it.Email == root.Email && it.Id != root.Id)).Count() > 0)
                 .WithMessage("This email is not available");
 
             RuleFor(x => x.UserName)
@@ -23,7 +23,7 @@ namespace CrudTestWeb.Users.Application.Commands.CreateUser
                 .MinimumLength(5)
                 .MaximumLength(30)
                 .MustAsync(async (root, lst, ctx) =>
-                    (await repository.GetAsync(it => it.UserName == root.UserName && it.AggregateId != root.Id)).Count() > 0)
+                    (await repository.GetAsync(it => it.UserName == root.UserName && it.Id != root.Id)).Count() > 0)
                 .WithMessage("This username is not available");
 
             RuleFor(x => x.Password)

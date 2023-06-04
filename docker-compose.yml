@@ -1,0 +1,29 @@
+version: '3'
+services:
+  webapi:
+    build:
+      context: ./WebApi
+      dockerfile: Dockerfile
+    ports:
+      - 5208:80
+    environment:
+      - ConnectionStringDb=Server=db;Database=CrudTestWeb;User=sa;Password=Your_password123;MultipleActiveResultSets=true;TrustServerCertificate=true
+    depends_on:
+      - db
+    command: sh -c "while ! nc -z db 1433; do sleep 1; done && /opt/mssql-tools/bin/sqlcmd -S db -U sa -P Your_password123 -i /docker-entrypoint-initdb.d/init.sql"
+
+  webfront:
+    build:
+      context: ./WebFront
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+  db:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_password123
+    ports:
+      - 1433:1433
+    volumes:
+      - ./Db/init.sql:/docker-entrypoint-initdb.d/init.sql

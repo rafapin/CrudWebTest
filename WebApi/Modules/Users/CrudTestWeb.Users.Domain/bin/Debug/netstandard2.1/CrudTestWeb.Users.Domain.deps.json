@@ -1,0 +1,37 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "CrudTestWeb.Users.Domain/1.0.0": {
+        "dependencies": {
+          "CrudTestWeb.Shared.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CrudTestWeb.Users.Domain.dll": {}
+        }
+      },
+      "CrudTestWeb.Shared.Domain/1.0.0": {
+        "runtime": {
+          "CrudTestWeb.Shared.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CrudTestWeb.Users.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CrudTestWeb.Shared.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

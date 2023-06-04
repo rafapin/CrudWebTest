@@ -11,15 +11,17 @@ namespace CrudTestWeb.Users.Domain
         public string Email { get; set; }
         public string Password { get; set; }
         public UserStatus Status { get; set; }
+
+        public UserAggregate() { }
         public UserAggregate(string userName, string email, string password)
         {
-            AggregateId = Guid.NewGuid().ToString();
             UserName = userName;
             Email = email;
             Password = password;
             CreateDate = LastUpdateDate = DateTime.UtcNow;
             Status = UserStatus.Active;
-            DomainEvents.Add(new UserCreated(userName, email, Status));
+            if(string.IsNullOrEmpty(Id))
+                DomainEvents.Add(new UserCreated(userName, email, Status));
         }
 
         public void UpdateUser(string userName, string email, string password)
@@ -33,7 +35,7 @@ namespace CrudTestWeb.Users.Domain
 
         public void ChangePassword(string password)
         {
-            if(password != Password)
+            if(password != Password && !string.IsNullOrEmpty(password))
             {
                 Password = password;
                 DomainEvents.Add(new PasswordChanged());

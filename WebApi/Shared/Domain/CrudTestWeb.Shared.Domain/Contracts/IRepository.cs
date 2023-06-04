@@ -8,6 +8,7 @@ namespace CrudTestWeb.Shared.Domain.Contracts
 {
     public interface IRepository<TAggregate> where TAggregate : Aggregate
     {
+        Task Commit();
         Task AddAsync(TAggregate aggregate);
         Task UpdateAsync(TAggregate aggregate);
         Task SaveAsync(TAggregate aggregate);

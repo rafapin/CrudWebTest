@@ -1,5 +1,6 @@
 ﻿using CrudTestWeb.Shared.Domain.Contracts;
 using CrudTestWeb.Users.Domain;
+using CrudTestWeb.Users.Domain.Contracts;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace CrudTestWeb.Users.Application.Commands.CreateUser
         {
             var userAggregate = await _repository.GetByIdAsync(request.Id);
             userAggregate.ChangeStatus(request.Status);
-            await _repository.UpdateAsync(userAggregate);
+            await _repository.SaveAsync(userAggregate);
+            await _repository.Commit();
             return true;
         }
     }

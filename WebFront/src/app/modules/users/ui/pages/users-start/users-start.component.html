@@ -1,0 +1,19 @@
+<mat-card class="welcome-card" [@fadeInOut]>
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-content>
+        <div *ngIf="loading" style="margin-top:60px">
+            <mat-progress-bar mode="query"></mat-progress-bar>
+            <p>¡It's loading, for you!</p>
+        </div>
+        <p *ngIf="!loading">¡Do click to Start!</p>
+    </mat-card-content>
+    <mat-card-actions >
+      <button 
+        class="start-button" 
+        *ngIf="!loading" 
+        mat-raised-button 
+        color="primary" 
+        (click)="start()"
+        >Start</button>
+    </mat-card-actions>
+  </mat-card>  

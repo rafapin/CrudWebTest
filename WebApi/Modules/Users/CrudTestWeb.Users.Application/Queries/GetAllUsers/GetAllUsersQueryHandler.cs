@@ -22,7 +22,7 @@ namespace CrudTestWeb.Users.Application.Queries.GetAllUsers
             var users = await _repository.GetAllAsync();
             return users.Select(user => new UserVm
             {
-                Id = user.AggregateId,
+                Id = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
                 Status = user.Status.ToString()
